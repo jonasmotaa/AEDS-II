@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void v1(){
+
+FILE *arq;
+    int i;
+    arq = fopen("teste.txt", "r");
+    if(arq != NULL)
+    {
+        while( (fscanf(arq, "%i \n", &i))!= EOF)
+        {
+            printf("%i \n", i);
+        }
+        fclose(arq);
+    }}
+
+    void v2(){
+    FILE *arq;
+    int vet[5];
+    int i = 0;
+    arq = fopen("teste.dat", "w");
+    if(arq != NULL){
+        while (fread(&vet[i], sizeof(int), 1, arq) == 1){
+            printf("%d \n", vet[i]);
+            i++;
+        }
+        fclose(arq);
+    }
+    }
+
+
+    void v3(){
+    FILE *arq;
+    arq = fopen("dados.txt", "r");
+    if(arq != NULL){
+    char c;
+    while ((c = fgetc(arq)) != EOF){
+        printf("%c", c);
+    }
+    fclose(arq);
+    }else{
+    printf("Erro ao abrir o arquivo!");
+    }
+
+    }
+
+   void v4(){
+    FILE *arq;
+    int i;
+    arq = fopen("nomearq.txt", "w");
+    if(arq != NULL){
+    for(int i = 10; i < 100; i = i + 3){
+        fprintf(arq, "%d\n", i);
+        }
+        fclose(arq);
+    }else{printf("erro ao abrir o arquivo!");}
+
+    }
+
+    void v5(){
+    int valor = 12;
+    FILE *arq;
+    arq = fopen("nomearq.txt", "r + b");
+    if(arq != NULL){
+        fseek(arq, 2 * sizeof(int), SEEK_SET);
+        fwrite(&valor, 1 * sizeof(int), 1, arq);
+        fclose(arq);
+
+    }
+
+    }
+
+
+
+int main()
+{
+
+v5();
+    return 0;
+}
